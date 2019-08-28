@@ -1,0 +1,16 @@
+<nz-sider class="leftSlider" nzTheme="light">
+    <ul nz-menu nzMode="inline" class="sider-menu">
+      <li nz-submenu [nzOpen]="core.url.indexOf('/digital/phone') !=-1" nzIcon="mobile" nzTitle="手机">
+        <ul>
+          <li nz-menu-item [nzSelected]="core.url.indexOf('/digital/phone/expensive') !=-1"><a [routerLink]="['/digital/phone']">高端机</a></li>
+          <li nz-menu-item [nzSelected]="core.url.indexOf('/digital/phone/cheap') !=-1"><a [routerLink]="['/digital/phone/cheap']">大众机</a></li>
+        </ul>
+      </li>
+      <li nz-submenu [nzOpen]="core.url.indexOf('/digital/ipaid') !=-1" nzTitle="Ipaid" nzIcon="laptop">
+        <ul>
+          <li nz-menu-item [nzSelected]="core.url.indexOf('/digital/ipaid/android') !=-1"><a [routerLink]="['/digital/ipaid/android']">Android</a></li>
+          <li nz-menu-item [nzSelected]="core.url.indexOf('/digital/ipaid/ios') !=-1"><a [routerLink]="['/digital/ipaid/ios']">Ios</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>

@@ -1,0 +1,30 @@
+<nz-header>
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item [nzSelected]="core.url.indexOf('/home') !=-1">
+            <a [routerLink]="['/home']">首页</a>
+        </li>
+        <li nz-menu-item [nzSelected]="core.url.indexOf('/digital') !=-1">
+            <a [routerLink]="['/digital/phone/expensive']">数码城</a>
+        </li>
+        <li nz-menu-item>
+            <nz-dropdown>
+                <span nz-dropdown><i nz-icon type="down"></i>家装</span>
+                <ul nz-menu nzSelectable>
+                    <li nz-menu-item>
+                        <a>1st menu item</a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>2nd menu item</a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>3rd menu item</a>
+                    </li>
+                </ul>
+            </nz-dropdown>
+        </li>
+    </ul>
+    <div class="logout">
+        <a href="javascript:;" (click)="logout()">退出</a>
+    </div>
+</nz-header>
