@@ -1,0 +1,57 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "module": "es2015",
+    "types": [],
+    "paths": {
+      "@shared": [
+        "app/pages/shared"
+      ],
+      "@shared/*": [
+        "app/pages/shared/*"
+      ],
+      "@modules": [
+        "app/pages/modules"
+      ],
+      "@modules/*": [
+        "app/pages/modules/*"
+      ],
+      "@layouts": [
+        "app/pages/layout"
+      ],
+      "@layouts/*": [
+        "app/pages/layout/*"
+      ],
+      "@pages": [
+        "app/pages/pages"
+      ],
+      "@pages/*": [
+        "app/pages/pages/*"
+      ],
+      "@env": [
+        "environments"
+      ],
+      "@env/*": [
+        "environments/*"
+      ],
+      "@assets": [
+        "assets"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ]
+    }
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}
