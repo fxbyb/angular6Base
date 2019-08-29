@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CoreService } from '@shared/services/core.service';
-import { AppBase } from './app-base';
+import { AppBase } from '@shared/components/app-base/app-base';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

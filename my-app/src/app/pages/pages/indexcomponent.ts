@@ -14,17 +14,16 @@ export class IndexComponent implements OnInit{
   }
   mane = '';
   ngOnInit(): void {
-    console.log('123')
     this.indexService.getIndexList({ob: 123}).subscribe(res =>{
 
     }, error => {
       console.log(error);
     });
-    let parent = {
+    const parent = {
       name: '123'
     }
     console.log(parent);
-    let Ap = {...parent, ...{name: '234'}};
+    const Ap = {...parent, ...{name: '234'}};
     console.log(Ap);
   }
 

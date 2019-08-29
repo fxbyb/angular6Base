@@ -1,0 +1,113 @@
+.upload-area {
+  width: 200px;
+  margin-right: 20px;
+}
+.upload-detail {
+  flex: 1;
+}
+.upload-table {
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  thead th, tbody td {
+      vertical-align: bottom;
+      border-bottom: 1px solid #ddd;
+      padding: 8px;
+      line-height: 1.42857143;
+      text-align: left;
+  }
+  tbody td {
+    border-bottom: 1px dashed #ddd;
+    height: 47px;
+    line-height: 30px;
+    &.upload-result {
+      i {
+        &.upload-success {
+          color: #5cb85c;
+        }
+        &.upload-cancel {
+          color: #eea236;
+        }
+        &.upload-error {
+          color: #d43f3a;
+        }
+      }
+    }
+  }
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  button[nz-button][nzSize='small'] {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+  .no-upload-file td {
+    color: rgba(0, 0, 0, 0.45);
+  }
+}
+.upload-progress {
+  height: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  .progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #5cb85c;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+  }
+}
+:host ::ng-deep button[nz-button] {
+  &.ant-btn {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+  }
+  &.ant-btn-primary {
+    color: #fff;
+    background: #30aab6;
+    border-color: #30aab6;
+  }
+  &.ant-btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+  }
+}
+:host ::ng-deep nz-alert {
+  margin-bottom: 5px;
+}
+:host ::ng-deep nz-tag.upload-file-tag .ant-tag {
+  margin-left: 8px;
+  opacity: 0.6 !important;
+  cursor: default;
+}
+:host ::ng-deep .ant-upload button.upload-btn {
+  width: 200px;
+  color: rgba(0, 0, 0, 0.65) !important;
+  background-color: #fff !important;
+  border-color: #d9d9d9 !important;
+}
+:host ::ng-deep .ant-upload-select-picture-card {
+  width: 200px;
+  height: 100px;
+  margin-top: 5px;
+}

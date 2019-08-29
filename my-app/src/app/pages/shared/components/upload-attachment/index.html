@@ -1,0 +1,89 @@
+<div nz-row>
+  <div nz-col nzSpan="6" class="upload-area">
+    <!--<nz-alert nzBanner nzCloseable nzMessage="支持多文件拖拽上传"></nz-alert>-->
+    <div class="ant-upload ant-upload-select ant-upload-select-text" *ngIf="!dropzone">
+      <div nz-upload-btn class="ant-upload" tabindex="0" role="button">
+        <input type="file" ng2FileSelect [uploader]="uploader" style="display:none" *ngIf="!multiple"/>
+        <input type="file" ng2FileSelect [uploader]="uploader" style="display:none" multiple *ngIf="multiple"/>
+        <button nz-button nzType="dashed" class="ant-btn upload-btn" (click)="selectFiles($event)">
+          <i class="anticon anticon-upload" style="display: inline-block;"></i>
+          <span>选择上传文件</span>
+        </button>
+      </div>
+    </div>
+    <div class="ant-upload ant-upload-select ant-upload-select-picture-card" *ngIf="dropzone">
+      <div nz-upload-btn ng2FileDrop [uploader]="uploader" class="ant-upload" tabindex="0" role="button">
+        <i class="anticon anticon-upload"></i>
+        <div class="ant-upload-text">拖拽文件上传</div>
+      </div>
+    </div>
+  </div>
+  <div nz-col nzSpan="18" class="upload-detail">
+    <nz-alert nzBanner [nzMessage]="messageTmpl"></nz-alert>
+    <ng-template #messageTmpl>
+      上传文件预览<span *ngIf="uploadFileCount>0">(共<nz-badge [nzCount]="uploadFileCount" [nzStyle]="{backgroundColor:'#30aab6'}"></nz-badge>个文件需要上传)</span>
+    </ng-template>
+    <table class="upload-table table">
+      <thead>
+      <tr>
+        <th width="60%">上传文件名称</th>
+        <th>文件处理</th>
+        <th>上传结果</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="uploadFileCount==0" class="no-upload-file">
+        <td colspan="3" class="text-center">
+          <span>请在左侧<nz-tag class="upload-file-tag">{{uploadFileText}}</nz-tag>进行上传!</span><br/>
+          <span>支持上传文件最大为{{fileMaxSize}}MB，类型为{{fileType}}</span>
+        </td>
+      </tr>
+      <tr *ngFor="let item of uploader.queue">
+        <td><strong>{{item?.file?.name}}</strong></td>
+        <td>
+          <button nz-button nzType="primary" nzSize="small"
+                  (click)="upload(item)" *ngIf="!item.isUploading && !item.isUploaded"
+                  [disabled]="item.isReady || item.isUploading || item.isSuccess">
+            <i class="anticon anticon-upload"></i>上传</button>
+          <!--<button nz-button nzSize="small"-->
+          <!--(click)="item.cancel()"-->
+          <!--[disabled]="!item.isUploading">-->
+          <!--<i class="anticon anticon-rollback"></i>取消</button>-->
+          <button *ngIf="!item.isUploading && !item.isUploaded" nz-button nzType="danger" nzSize="small"
+                  (click)="item.remove()">
+            <i class="anticon anticon-delete"></i>移除</button>
+        </td>
+        <td class="upload-result">
+          <span *ngIf="item.isUploading"><i class="anticon anticon-spin anticon-loading upload-error"></i> 上传中</span>
+          <span *ngIf="item.isSuccess"><i class="anticon anticon-check-circle upload-success"></i> 成功</span>
+          <!--<span *ngIf="item.isCancel"><i class="anticon anticon-minus-circle upload-cancel"></i> 取消</span>-->
+          <span *ngIf="item.isError"><i class="anticon anticon-close-circle upload-error"></i> 失败</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!--隐藏进度条-->
+    <!--<div class="upload-progress" *ngIf="progress && uploader?.progress>0">-->
+      <!--<div class="progress-bar" role="progressbar" [ngStyle]="{'width':uploader?.progress+'%'}"></div>-->
+    <!--</div>-->
+    <div nz-row class="upload-buttons">
+      <!--<nz-divider></nz-divider>-->
+      <div nz-col [nzSpan]="12">
+        <div nz-row *ngIf="uploadFileCount>1">
+          <button nz-button nzType="primary"
+                  (click)="uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            <i class="anticon anticon-upload"></i>上传所有</button>
+          <!--<button nz-button-->
+          <!--(click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">-->
+          <!--<i class="anticon anticon-rollback"></i>取消所有</button>-->
+          <button nz-button nzType="danger" *ngIf="seeMoveAll"
+                  (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+            <i class="anticon anticon-delete"></i>移除所有</button>
+        </div>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <div *ngIf="uploadFileCount!=0 && isUploading" style="color: #ff0000;margin-top: 10px;display: inline-block;"><span>上传过程中，无法关闭该窗口。</span></div>
+      </div>
+    </div>
+  </div>
+</div>
