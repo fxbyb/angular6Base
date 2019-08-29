@@ -13,7 +13,7 @@ const routes: Routes = [
     path: '',
     component: DefaultLayoutComponent,
     children: [
-      { path: 'home', loadChildren: '../app-index#IndexModule' },
+      { path: 'home', loadChildren: () => import('../app-index').then(m => m.IndexModule) },
     ]
   },
   {

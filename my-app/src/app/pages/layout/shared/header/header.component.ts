@@ -10,7 +10,7 @@ import { StorageManager } from '@shared/utils/storage';
 })
 export class HeaderLayoutshareComponent implements OnInit{
   // constructor
-
+  name = 'logio';
   constructor(
     private router: Router,
     private core: CoreService

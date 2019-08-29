@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./src/",
-    "module": "es2015",
+    "module": "esnext",
     "types": [],
     "paths": {
       "@shared": [

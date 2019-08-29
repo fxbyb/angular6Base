@@ -1,2 +1,14 @@
 首页
-<cmb-upload-attachment></cmb-upload-attachment>
+<button nz-button nzType="primary" (click)="open()">上传测试</button>
+<!-- <cmb-upload-attachment #uploadAttachment></cmb-upload-attachment> -->
+<nz-modal [nzMaskClosable]="false" nzWidth="1300" nzTitle="新增征求意见" [(nzVisible)]="submitVisible"
+[nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="submitVisibleCancel()">
+<ng-template #modalContent>
+    <button nz-button nzType="primary" (click)="open()">上传测试</button>
+    <cmb-upload-attachment #uploadAttachment></cmb-upload-attachment>
+</ng-template>
+
+<ng-template #modalFooter>
+  <button nz-button nzType="primary" (click)="submitVisibleCancel()" [nzLoading]="isConfirmLoading">关闭</button>
+</ng-template>
+</nz-modal>
