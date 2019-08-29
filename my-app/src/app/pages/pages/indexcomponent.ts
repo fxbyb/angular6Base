@@ -20,6 +20,12 @@ export class IndexComponent implements OnInit{
     }, error => {
       console.log(error);
     });
+    let parent = {
+      name: '123'
+    }
+    console.log(parent);
+    let Ap = {...parent, ...{name: '234'}};
+    console.log(Ap);
   }
 
 }
