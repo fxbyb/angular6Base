@@ -10,7 +10,8 @@ import { StorageManager } from '@shared/utils/storage';
 })
 export class LoginComponent implements OnInit{
   // constructor
-  password = '';
+  passwordVisible = false;
+  password: string;
   name = '';
   constructor(
     protected routerInfo: ActivatedRoute,
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit{
     StorageManager.set('loginUserMes', null);
   }
   login() {
-    if (this.name === 'bao' && this.password == '123'){
+    if (this.name === '100001' && this.password == '123'){
       const userMes = {
         name: this.name,
         userId: '123'

@@ -1,3 +1,21 @@
-账号：<input type="text" [(ngModel)]="name">
-密码：<input type="text" [(ngModel)]="password" (keydown.enter)="login()">
-<button (click)="login()">登录</button>
+<div class="backGround"></div>
+<div class="login">
+    <nz-input-group [nzSuffix]="nameAfter" [nzPrefix]="nameBefore" style="margin:  10px 0;">
+        <input type="text" nz-input [(ngModel)]="name" placeholder="请输入账号名：100001">
+    </nz-input-group>
+    <nz-input-group [nzSuffix]="passwordAfter" [nzPrefix]="passwordBefore">
+        <input [type]="passwordVisible ? 'text' : 'password'" nz-input placeholder="请输入密码：123"
+            [(ngModel)]="password" />
+    </nz-input-group>
+    <ng-template #nameBefore>
+        <span>账号</span>
+    </ng-template>
+    <ng-template #passwordBefore>
+        <span>密码</span>
+    </ng-template>
+    <ng-template #passwordAfter>
+        <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+            (click)="passwordVisible = !passwordVisible"></i>
+    </ng-template>
+    <button nz-button (click)="login()" nzType="primary">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+</div>

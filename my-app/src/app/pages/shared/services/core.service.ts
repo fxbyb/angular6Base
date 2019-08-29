@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponseResult } from '@shared/models/response.model';
@@ -8,6 +8,7 @@ import { StorageManager } from '@shared/utils/storage';
 @Injectable()
 export class CoreService {
 
+    SysProject: EventEmitter<any> = new EventEmitter();
     constructor(private http: HttpClient) {
     }
     request(url: string, params = null): Observable<ApiResponseResult> {
