@@ -23,12 +23,12 @@ export class IndexComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-    const parent = {
+/*     const parent = {
       name: '123'
     }
     console.log(parent);
     const Ap = {...parent, ...{name: '234'}};
-    console.log(Ap);
+    console.log(Ap); */
   }
   open(){
     console.log(this.uploadAttachment)

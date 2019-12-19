@@ -8,6 +8,7 @@ import { StorageManager } from '@shared/utils/storage';
 @Injectable()
 export class CoreService {
 
+    num: any;
     SysProject: EventEmitter<any> = new EventEmitter();
     constructor(private http: HttpClient) {
     }
@@ -24,5 +25,11 @@ export class CoreService {
 
     get UserMes(){
         return StorageManager.get('loginUserMes');
+    }
+    set(num){
+        this.num = num;
+    }
+    get(){
+        return this.num;
     }
 }
